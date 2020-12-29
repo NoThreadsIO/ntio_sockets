@@ -11,6 +11,9 @@
 
 namespace ntio::sockets {
 
+/**
+ * IP endpoint = IP address + port
+ */
 class EndPoint {
  public:
   EndPoint(std::string host, int port);

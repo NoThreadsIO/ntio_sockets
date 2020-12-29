@@ -10,6 +10,7 @@ set(SOURCE_FILES
         ntio/sockets/end_point.cc
         ntio/sockets/error.cc
         ntio/sockets/tcp_socket.cc
+        ntio/sockets/tcp_listener.cc
         )
 
 set(PRIVATE_HEADERS
@@ -26,9 +27,9 @@ set(PUBLIC_HEADERS
         ntio/sockets/async_write.h
         ntio/sockets/end_point.h
         ntio/sockets/error.h
+        ntio/sockets/tcp_listener.h
         ntio/sockets/tcp_socket.h
         )
 
 add_library(ntio_sockets STATIC ${SOURCE_FILES} ${PUBLIC_HEADERS})
-
-add_compile_definitions(cxx20sockets_static LOG_LEVEL_DEBUG)
+add_compile_definitions(cxx20sockets_static ${LOG_LEVEL})
