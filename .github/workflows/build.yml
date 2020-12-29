@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: mkdir
-        run: mkidir build && cd build
+        run: mkdir build && cd build
       - name: cmake
         run: cmake -DCMAKE_BUILD_TYPE=Release ..
       - name: make
