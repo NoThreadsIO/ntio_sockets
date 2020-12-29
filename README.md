@@ -2,7 +2,7 @@
 
 ntio_sockets - experimental asynchronous non-blocking sockets in C++20
 
-![CI status](https://github.com/NoThreadsIO/ntio_sockets/.github/workflows/ci.yml/badge.svg)
+![CI status](https://github.com/NoThreadsIO/ntio_sockets/workflows/.github/workflows/ci.yml/badge.svg)
 
 ## Motivation 
 
