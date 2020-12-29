@@ -1,18 +1,18 @@
 # NoThreads Sockets 
 
-ntio_sockets - experimental asynchronous non-blocking sockets in C++20
+**ntio_sockets** - experimental asynchronous non-blocking sockets in C++20
 
 ![CI status](https://github.com/NoThreadsIO/ntio_sockets/workflows/CI/badge.svg)
 
 ## Motivation 
 
-ThTo write asynchronous code like synchronous one. Over the last few years I have been developing micro-services
+To write asynchronous code like synchronous one. Over the last few years I have been developing micro-services
 applications based on Docker for IoT branch. Most of C or C++ communication libraries, that I use, 
-provide asynchronous approach by using threads in the background. But I don't need it. If I want to utilize a few CPUs, I
+provide an asynchronous approach by using threads in the background. I don't need it. If I want to utilize a few CPUs, I
 just run a few instances of the the same service. I consider the usage of the threads as an overkill. They only make my code 
 bug prone and overcomplicated. I want to have simpler tools.
 
-I'm not very interested in development of this library for general purpose, I need it for future asynchronous 
+I'm not very interested to develop this library for general purpose, I need it for future asynchronous 
 implementations of MQTT, HTTP, WS protocols, that I use every day. Any PRs are welcome, but I'm able to test only the part 
 that I use professionally.
 
@@ -85,7 +85,7 @@ The library is not ready for any usages expect playing with it.
   std::cout << "Write " << n << " bytes" << std::endl;
 ```
 
-Have look at `examples` directory.
+Have a look at `examples` directory.
 
 ## Code style
 
