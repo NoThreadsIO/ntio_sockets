@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check code in /src
-        run: docker-compose up cpplint_src
+        run: docker-compose run cpplint_src
       - name: Check code in /examples
-        run: docker-compose up cpplint_examples
+        run: docker-compose run cpplint_examples
 
   build:
     runs-on: ubuntu-latest
@@ -22,4 +22,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build code in Docker
-        run: docker-compose up build_project
+        run: docker-compose run build_project
