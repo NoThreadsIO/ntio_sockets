@@ -6,12 +6,10 @@
 
 #include <vector>
 
-#include "async_accept.h"
-#include "async_bind.h"
-#include "async_connect.h"
-#include "async_read.h"
-#include "async_write.h"
-#include "end_point.h"
+#include "ntio/sockets/async_connect.h"
+#include "ntio/sockets/async_read.h"
+#include "ntio/sockets/async_write.h"
+#include "ntio/sockets/end_point.h"
 
 namespace ntio::sockets {
 
@@ -45,35 +43,6 @@ class TcpSocket : public ITcpSocket {
 
   [[nodiscard]] const Settings& settings() const { return settings_; }
   void set_settings(const Settings& settings) { settings_ = settings; }
-
- private:
-  int fd_;
-  Settings settings_;
-};
-
-class ITcpListener {
- public:
-  virtual ~ITcpListener() = default;
-
-  virtual AsyncBind Bind(EndPoint end_point) const noexcept = 0;
-  virtual AsyncAccept Accept() const noexcept = 0;
-};
-
-class TcpListener : public ITcpListener {
- public:
-  struct Settings {
-    size_t back_log;
-    std::chrono::milliseconds accept_timeout;
-  };
-
-  static const Settings kDefaultSettings;
-
-  explicit TcpListener(Settings settings);
-  TcpListener();
-
-  ~TcpListener() override;
-  AsyncBind Bind(EndPoint end_point) const noexcept override;
-  AsyncAccept Accept() const noexcept override;
 
  private:
   int fd_;
