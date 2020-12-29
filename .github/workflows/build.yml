@@ -11,5 +11,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: build
-        run: docker-compose build build
+      - name: Build code in Docker
+        run: docker-compose build build_project
