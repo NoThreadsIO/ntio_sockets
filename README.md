@@ -1,13 +1,13 @@
 # NoThreads Sockets 
 
-ntio_sockets - experimental asynchronous no-blocking sockets in C++20
+ntio_sockets - experimental asynchronous non-blocking sockets in C++20
 
 ## Motivation 
 
-Write asynchronous code like synchronous one ofc. However, over the last few years I have been developing micro-services
+ThTo write asynchronous code like synchronous one. Over the last few years I have been developing micro-services
 applications based on Docker for IoT branch. Most of C or C++ communication libraries, that I use, 
 provide asynchronous approach by using threads in the background. But I don't need it. If I want to utilize a few CPUs, I
-just run a few instances of the the same service. I consider the usage of the threads as a overkill. They only make my code 
+just run a few instances of the the same service. I consider the usage of the threads as an overkill. They only make my code 
 bug prone and overcomplicated. I want to have simpler tools.
 
 I'm not very interested in development of this library for general purpose, I need it for future asynchronous 
@@ -60,7 +60,7 @@ The library is not ready for any usages expect playing with it.
 
 ```cpp
   TcpListener listener;
-  if (auto err = co_await listener.Bind(EndPoint("127.0.0.1", kPort))) {
+  if (auto err = co_await listener.Bind(EndPoint("127.0.0.1", 4000))) {
     std::cout << "Bind error: " << err << std::endl;
     co_return;
   }
@@ -74,16 +74,16 @@ The library is not ready for any usages expect playing with it.
     co_return;
   }
 
-  std::vector<uint8_t> wbuffer(100);
-  auto [write_bytes, write_err] = co_await sock->Write(wbuffer, 10);
-  if (write_err) {
-    std::cout << "Write error: " << write_err << std::endl;
+  std::vector<uint8_t> buffer(100);
+  auto [n, err] = co_await sock->Write(buffer, 10);
+  if (err) {
+    std::cout << "Write error: " << err << std::endl;
     co_return;
   }
-  std::cout << "Write " << write_bytes << " bytes" << std::endl;
+  std::cout << "Write " << n << " bytes" << std::endl;
 ```
 
-Have look at `example` directory.
+Have look at `examples` directory.
 
 ## Code style
 
