@@ -1,0 +1,25 @@
+name: Build C/C++
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check code in /src
+        run: docker-compose run cpplint_src
+      - name: Check code in /examples
+        run: docker-compose run cpplint_examples
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build code in Docker
+        run: docker-compose run build_project

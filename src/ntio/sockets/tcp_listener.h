@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Aleksey Timin <atimin@gmail.com>
 // Licensed under the MIT License.
 
-#ifndef NTIO_SOCKETS_TCP_LISTENER_H
-#define NTIO_SOCKETS_TCP_LISTENER_H
+#ifndef NTIO_SOCKETS_TCP_LISTENER_H_
+#define NTIO_SOCKETS_TCP_LISTENER_H_
 
 #include "ntio/sockets/async_accept.h"
 #include "ntio/sockets/async_bind.h"
@@ -80,6 +80,5 @@ class TcpListener : public ITcpListener {
   Settings settings_;
 };
 
-
-}
-#endif  // NTIO_SOCKETS_TCP_LISTENER_H
+}  // namespace ntio::sockets
+#endif  // NTIO_SOCKETS_TCP_LISTENER_H_

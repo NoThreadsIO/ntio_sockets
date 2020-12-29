@@ -1,12 +1,12 @@
 version: '3'
 services:
+  build_project:
+    build: .
+
   gdb_server:
     build: docker/gdb_server
     ports:
       - "7773:22"
-
-  mqtt_broker:
-    build: docker/mqtt_broker
 
   cpplint_src:
     build: docker/cpplint

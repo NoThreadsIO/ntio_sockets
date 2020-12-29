@@ -32,4 +32,5 @@ AsyncBind TcpListener::Bind(EndPoint end_point) const noexcept {
 }
 
 AsyncAccept TcpListener::Accept() const noexcept { return AsyncAccept(fd_, settings_.accept_timeout); }
+
 }  // namespace ntio::sockets
