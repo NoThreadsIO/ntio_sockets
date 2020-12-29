@@ -1,5 +1,8 @@
 version: '3'
 services:
+  build:
+    build: docker/build
+
   gdb_server:
     build: docker/gdb_server
     ports:
