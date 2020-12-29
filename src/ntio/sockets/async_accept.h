@@ -13,12 +13,12 @@
 
 namespace ntio::sockets {
 
-class TcpSocket;
+class ITcpSocket;
 
 class AsyncAccept {
  public:
   struct Result {
-    std::unique_ptr<TcpSocket> connected_socket;
+    std::unique_ptr<ITcpSocket> connected_socket;
     Error error;
   };
 

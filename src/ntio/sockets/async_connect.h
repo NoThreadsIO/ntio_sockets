@@ -12,6 +12,7 @@
 #include "ntio/sockets/internal/time_utils.h"
 
 namespace ntio::sockets {
+
 class AsyncConnect {
  public:
   struct Awaiter {
