@@ -1,0 +1,21 @@
+version: '3'
+services:
+  gdb_server:
+    build: docker/gdb_server
+    ports:
+      - "7773:22"
+
+  mqtt_broker:
+    build: docker/mqtt_broker
+
+  cpplint_src:
+    build: docker/cpplint
+    command: bash -c "find src/ -name "*.cc" -o -name "*.h"  | xargs cpplint.py"
+    volumes:
+      - .:/app/
+
+  cpplint_examples:
+    build: docker/cpplint
+    command: bash -c "find examples/ -name "*.cc" -o -name "*.h"  | xargs cpplint.py"
+    volumes:
+      - .:/app/
