@@ -32,5 +32,4 @@ set(PUBLIC_HEADERS
         )
 
 add_library(ntio_sockets STATIC ${SOURCE_FILES} ${PUBLIC_HEADERS})
-
-add_compile_definitions(cxx20sockets_static LOG_LEVEL_DEBUG)
+add_compile_definitions(cxx20sockets_static ${LOG_LEVEL})
