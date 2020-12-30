@@ -2,6 +2,7 @@
 
 * Add documentation, #1 by @flipback
 * Add GitHub acctions to build and lint code, #2 by @flipback
+* Fix log macros, #3 by @flipback
 
 # Release 0.1.0 (29-12-2020)
 

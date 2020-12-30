@@ -32,4 +32,6 @@ set(PUBLIC_HEADERS
         )
 
 add_library(ntio_sockets STATIC ${SOURCE_FILES} ${PUBLIC_HEADERS})
-add_compile_definitions(cxx20sockets_static ${LOG_LEVEL})
+add_compile_definitions(ntio_sockets ${NTIO_SOCKETS_LOG_LEVEL})
+
+target_include_directories(ntio_sockets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

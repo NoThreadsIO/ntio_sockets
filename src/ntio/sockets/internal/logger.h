@@ -26,28 +26,37 @@ constexpr const char *file_name(const char *str) { return str_slant(str) ? r_sla
     ntio::sockets::internal::Log(level, line, file, ss.str()); \
   }
 
-#ifdef LOG_LEVEL_ERROR
-#define LOG_ERROR(msg) LOG(0, __LINE__, sockets::internal::file_name(__FILE__), msg)
-#else
+#define EMPTY_LOG(msg)     \
+  {                        \
+    std::ostringstream ss; \
+    ss << msg;             \
+  }
 
-#define LOG_ERROR(msg)
+#define LOG_ERROR(msg) EMPTY_LOG(msg)
+#define LOG_WARN(msg) EMPTY_LOG(msg)
+#define LOG_INFO(msg) EMPTY_LOG(msg)
+#define LOG_DEBUG(msg) EMPTY_LOG(msg)
+
+#ifdef LOG_LEVEL_ERROR
+#undef LOG_ERROR
+#define LOG_ERROR(msg) LOG(0, __LINE__, sockets::internal::file_name(__FILE__), msg)
+#endif
 
 #ifdef LOG_LEVEL_WARN
 #undef LOG_ERROR
 #define LOG_ERROR(msg) LOG(0, __LINE__, sockets::internal::file_name(__FILE__), msg)
+#undef LOG_WARN
 #define LOG_WARN(msg) LOG(1, __LINE__, sockets::internal::file_name(__FILE__), msg)
-#else
+#endif
 
-#define LOG_WARN(msg)
 #ifdef LOG_LEVEL_INFO
 #undef LOG_ERROR
 #define LOG_ERROR(msg) LOG(0, __LINE__, sockets::internal::file_name(__FILE__), msg)
 #undef LOG_WARN
 #define LOG_WARN(msg) LOG(1, __LINE__, sockets::internal::file_name(__FILE__), msg)
+#undef LOG_INFO
 #define LOG_INFO(msg) LOG(2, __LINE__, sockets::internal::file_name(__FILE__), msg)
-#else
-
-#define LOG_INFO(msg)
+#endif
 
 #ifdef LOG_LEVEL_DEBUG
 #undef LOG_ERROR
@@ -56,15 +65,8 @@ constexpr const char *file_name(const char *str) { return str_slant(str) ? r_sla
 #define LOG_WARN(msg) LOG(1, __LINE__, ntio::sockets::internal::file_name(__FILE__), msg)
 #undef LOG_INFO
 #define LOG_INFO(msg) LOG(2, __LINE__, ntio::sockets::internal::file_name(__FILE__), msg)
+#undef LOG_DEBUG
 #define LOG_DEBUG(msg) LOG(3, __LINE__, ntio::sockets::internal::file_name(__FILE__), msg)
-#else
-#define LOG_DEBUG(msg)
-#endif
-
-#endif
-
-#endif
-
 #endif
 
 }  // namespace ntio::sockets::internal
