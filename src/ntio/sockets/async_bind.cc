@@ -3,10 +3,11 @@
 
 #include "async_bind.h"
 
-#include "ntio/sockets/internal/logger.h"
+#include "ntio/core/logger.h"
 
 namespace ntio::sockets {
 
+using core::Error;
 /*
  * AsyncBind::Awaiter
  */

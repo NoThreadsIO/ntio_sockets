@@ -5,7 +5,7 @@
 
 #include <chrono>
 
-#include "ntio/sockets/internal/logger.h"
+#include "ntio/core/logger.h"
 #include "ntio/sockets/internal/socket_utils.h"
 #include "ntio/sockets/internal/time_utils.h"
 
@@ -13,7 +13,7 @@ namespace ntio::sockets {
 
 using internal::CheckConnection;
 using internal::SteadyClock;
-
+using ntio::core::Error;
 /*
  * AsyncRead::Awaiter
  */
@@ -28,7 +28,7 @@ void AsyncConnect::Awaiter::await_suspend(std::coroutine_handle<> handle) noexce
   handle.resume();
 }
 
-Error AsyncConnect::Awaiter::await_resume() noexcept { return error; }
+core::Error AsyncConnect::Awaiter::await_resume() noexcept { return error; }
 
 /*
  * AsyncRead

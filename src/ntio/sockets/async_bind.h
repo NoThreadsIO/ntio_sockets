@@ -7,19 +7,19 @@
 #include <coroutine>
 
 #include "end_point.h"
-#include "error.h"
+#include "ntio/core/error.h"
 
 namespace ntio::sockets {
 
 class AsyncBind {
  public:
   struct Awaiter {
-    explicit Awaiter(Error error);
+    explicit Awaiter(core::Error error);
     bool await_ready() noexcept;
     void await_suspend(std::coroutine_handle<> handle) noexcept;
-    Error await_resume() noexcept;
+    core::Error await_resume() noexcept;
 
-    Error error;
+    core::Error error;
   };
 
   AsyncBind(int fd, EndPoint end_point, int back_log);

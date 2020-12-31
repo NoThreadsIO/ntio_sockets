@@ -10,10 +10,12 @@
 
 #include <system_error>
 
-#include "logger.h"
+#include "ntio/core/logger.h"
 #include "time_utils.h"
 
 namespace ntio::sockets::internal {
+
+using ::ntio::core::Error;
 
 Error CheckConnection(const int fd, std::chrono::milliseconds timeout) {
   auto start_time = SteadyClock::now();

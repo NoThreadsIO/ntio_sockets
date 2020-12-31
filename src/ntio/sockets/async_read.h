@@ -11,7 +11,7 @@
 #include <cstdint>
 #include <vector>
 
-#include "error.h"
+#include "ntio/core/error.h"
 #include "ntio/sockets/internal/time_utils.h"
 
 namespace ntio::sockets {
@@ -20,7 +20,7 @@ class AsyncRead {
  public:
   struct Result {
     size_t bytes;
-    Error error;
+    core::Error error;
   };
 
   struct Awaiter {
@@ -30,7 +30,7 @@ class AsyncRead {
     Result await_resume() noexcept;
 
     const AsyncRead* owner;
-    Error error;
+    core::Error error;
   };
 
   AsyncRead(int fd, std::chrono::milliseconds timeout, std::vector<uint8_t>* data, size_t len);

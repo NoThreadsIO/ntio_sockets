@@ -8,7 +8,7 @@
 #include <coroutine>
 #include <memory>
 
-#include "ntio/sockets/error.h"
+#include "ntio/core/error.h"
 #include "ntio/sockets/internal/time_utils.h"
 
 namespace ntio::sockets {
@@ -19,7 +19,7 @@ class AsyncAccept {
  public:
   struct Result {
     std::unique_ptr<ITcpSocket> connected_socket;
-    Error error;
+    core::Error error;
   };
 
   struct Awaiter {
@@ -29,7 +29,7 @@ class AsyncAccept {
     Result await_resume() noexcept;
 
     const AsyncAccept* owner;
-    Error error;
+    core::Error error;
   };
 
   AsyncAccept(int fd, std::chrono::milliseconds timeout);

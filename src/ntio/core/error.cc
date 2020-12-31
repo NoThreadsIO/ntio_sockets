@@ -3,7 +3,7 @@
 
 #include "error.h"
 
-namespace ntio::sockets {
+namespace ntio::core {
 
 std::ostream& operator<<(std::ostream& os, const Error& error) {
   os << static_cast<std::string>(error);
@@ -18,4 +18,4 @@ Error::operator std::string() const noexcept { return message + "[" + std::to_st
 
 Error::operator bool() const noexcept { return code != 0; }
 
-}  // namespace ntio::sockets
+}  // namespace ntio::core

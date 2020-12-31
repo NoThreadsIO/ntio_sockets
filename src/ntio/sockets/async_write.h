@@ -8,7 +8,7 @@
 #include <coroutine>
 #include <vector>
 
-#include "error.h"
+#include "ntio/core/error.h"
 #include "ntio/sockets/internal/time_utils.h"
 
 namespace ntio::sockets {
@@ -16,7 +16,7 @@ class AsyncWrite {
  public:
   struct Result {
     size_t bytes;
-    Error error;
+    core::Error error;
   };
 
   struct Awaiter {
@@ -26,7 +26,7 @@ class AsyncWrite {
     Result await_resume() noexcept;
 
     const AsyncWrite* owner;
-    Error error;
+    core::Error error;
   };
 
   AsyncWrite(int fd, std::chrono::milliseconds timeout, const std::vector<uint8_t>& data, size_t len);

@@ -1,14 +1,14 @@
 // Copyright (c) 2020 Aleksey Timin <atimin@gmail.com>
 // Licensed under the MIT License.
 
-#ifndef NTIO_SOCKETS_ERROR_H_
-#define NTIO_SOCKETS_ERROR_H_
+#ifndef NTIO_CORE_ERROR_H_
+#define NTIO_CORE_ERROR_H_
 
 #include <ostream>
-namespace ntio::sockets {
+namespace ntio::core {
 
 /**
- * Socket error
+ * Error
  */
 struct Error {
   /**
@@ -18,7 +18,7 @@ struct Error {
 
   /**
    * Creates an error
-   * @param err errno code
+   * @param err errno code if > 0, custom code if < 0
    */
   explicit Error(int err);
   int code = 0;
@@ -48,5 +48,5 @@ struct Error {
   friend std::ostream& operator<<(std::ostream& os, const Error& error);
 };
 
-}  // namespace ntio::sockets
-#endif  // NTIO_SOCKETS_ERROR_H_
+}  // namespace ntio::core
+#endif  // NTIO_CORE_ERROR_H_

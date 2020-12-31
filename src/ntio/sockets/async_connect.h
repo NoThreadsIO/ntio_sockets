@@ -8,7 +8,7 @@
 #include <coroutine>
 
 #include "end_point.h"
-#include "error.h"
+#include "ntio/core/error.h"
 #include "ntio/sockets/internal/time_utils.h"
 
 namespace ntio::sockets {
@@ -16,13 +16,13 @@ namespace ntio::sockets {
 class AsyncConnect {
  public:
   struct Awaiter {
-    Awaiter(const AsyncConnect* owner, Error error);
+    Awaiter(const AsyncConnect* owner, core::Error error);
     bool await_ready() noexcept;
     void await_suspend(std::coroutine_handle<> handle) noexcept;
-    Error await_resume() noexcept;
+    core::Error await_resume() noexcept;
 
     const AsyncConnect* owner;
-    Error error;
+    core::Error error;
   };
 
   AsyncConnect(int fd, EndPoint end_point, std::chrono::milliseconds timeout);
@@ -33,7 +33,7 @@ class AsyncConnect {
   std::chrono::milliseconds timeout_;
   EndPoint end_point_;
   internal::SteadyClock::time_point start_time_;
-  Error error_;
+  core::Error error_;
 };
 }  // namespace ntio::sockets
 

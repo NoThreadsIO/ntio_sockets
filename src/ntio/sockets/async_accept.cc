@@ -7,7 +7,7 @@
 
 #include <chrono>
 
-#include "ntio/sockets/internal/logger.h"
+#include "ntio/core/logger.h"
 #include "ntio/sockets/internal/socket_utils.h"
 #include "tcp_socket.h"
 
@@ -15,6 +15,7 @@ namespace ntio::sockets {
 
 using internal::CheckDataToRead;
 using internal::SteadyClock;
+using core::Error;
 
 AsyncAccept::Awaiter::Awaiter(const AsyncAccept* owner) : owner(owner), error() {}
 

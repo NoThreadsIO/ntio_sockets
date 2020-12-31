@@ -3,7 +3,7 @@
 
 #include "tcp_socket.h"
 
-#include "ntio/sockets/internal/logger.h"
+#include "ntio/core/logger.h"
 #include "ntio/sockets/internal/socket_utils.h"
 
 namespace ntio::sockets {
