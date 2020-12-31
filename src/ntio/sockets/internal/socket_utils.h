@@ -8,19 +8,19 @@
 #include <tuple>
 #include <vector>
 
-#include "ntio/sockets/error.h"
+#include "ntio/core/error.h"
 
 namespace ntio::sockets::internal {
 
-Error CheckConnection(const int fd, std::chrono::milliseconds timeout);
+core::Error CheckConnection(const int fd, std::chrono::milliseconds timeout);
 
-Error CheckDataToRead(int fd, std::chrono::milliseconds timeout);
+core::Error CheckDataToRead(int fd, std::chrono::milliseconds timeout);
 
-Error CheckDataToWrite(int fd, std::chrono::milliseconds timeout);
+core::Error CheckDataToWrite(int fd, std::chrono::milliseconds timeout);
 
-std::tuple<size_t, Error> ReadData(int fd, std::vector<uint8_t>* data, size_t len);
+std::tuple<size_t, core::Error> ReadData(int fd, std::vector<uint8_t>* data, size_t len);
 
-std::tuple<size_t, Error> WriteData(int fd, const std::vector<uint8_t>& data, size_t len);
+std::tuple<size_t, core::Error> WriteData(int fd, const std::vector<uint8_t>& data, size_t len);
 
 int OpenTcpSocket();
 

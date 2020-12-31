@@ -5,7 +5,7 @@
 
 #include <chrono>
 
-#include "ntio/sockets/internal/logger.h"
+#include "ntio/core/logger.h"
 #include "ntio/sockets/internal/socket_utils.h"
 #include "ntio/sockets/internal/time_utils.h"
 

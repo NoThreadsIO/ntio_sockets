@@ -1,5 +1,6 @@
 set(SOURCE_FILES
-        ntio/sockets/internal/logger.cc
+        ntio/core/logger.cc
+        ntio/core/error.cc
         ntio/sockets/internal/socket_utils.cc
         ntio/sockets/internal/time_utils.cc
         ntio/sockets/async_accept.cc
@@ -8,13 +9,12 @@ set(SOURCE_FILES
         ntio/sockets/async_read.cc
         ntio/sockets/async_write.cc
         ntio/sockets/end_point.cc
-        ntio/sockets/error.cc
         ntio/sockets/tcp_socket.cc
         ntio/sockets/tcp_listener.cc
         )
 
 set(PRIVATE_HEADERS
-        ntio/sockets/internal/logger.h
+        ntio/core/logger.h
         ntio/sockets/internal/socket_utils.h
         ntio/sockets/internal/time_utils.h
         )
@@ -26,7 +26,7 @@ set(PUBLIC_HEADERS
         ntio/sockets/async_read.h
         ntio/sockets/async_write.h
         ntio/sockets/end_point.h
-        ntio/sockets/error.h
+        ntio/core/error.h
         ntio/sockets/tcp_listener.h
         ntio/sockets/tcp_socket.h
         )
