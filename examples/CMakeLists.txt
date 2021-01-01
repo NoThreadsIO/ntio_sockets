@@ -7,3 +7,5 @@ target_link_libraries(
         simple_example
         ntio_sockets
 )
+
+add_compile_definitions(simple_example LOG_LEVEL_DEBUG)
