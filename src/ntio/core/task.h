@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Aleksey Timin <atimin@gmail.com>
 // Licensed under the MIT License.
 
-#ifndef NTIO_SOCKETS_ASYNC_TASK_H_
-#define NTIO_SOCKETS_ASYNC_TASK_H_
+#ifndef NTIO_CORE_TASK_H_
+#define NTIO_CORE_TASK_H_
 
 #include <ntio/core/logger.h>
 
@@ -49,4 +49,4 @@ struct Task {
 };
 
 }  // namespace ntio::core
-#endif  // NTIO_SOCKETS_ASYNC_TASK_H_
+#endif  // NTIO_CORE_TASK_H_

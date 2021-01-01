@@ -68,5 +68,4 @@ int main() {
   auto ret = PingPong();
   LOG_INFO("Result: " << ret);
   return ret ? -1 : 0;
-
 }
