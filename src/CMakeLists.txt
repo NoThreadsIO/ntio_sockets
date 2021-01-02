@@ -1,5 +1,5 @@
 set(SOURCE_FILES
-        ntio/core/task.h
+        ntio/core/buffer.cc
         ntio/core/error.cc
         ntio/core/logger.cc
         ntio/sockets/internal/socket_utils.cc
@@ -14,12 +14,8 @@ set(SOURCE_FILES
         ntio/sockets/tcp_listener.cc
         )
 
-set(PRIVATE_HEADERS
-        ntio/sockets/internal/socket_utils.h
-        ntio/sockets/internal/time_utils.h
-        )
-
 set(PUBLIC_HEADERS
+        ntio/core/buffer.h
         ntio/core/error.h
         ntio/core/logger.h
         ntio/sockets/async_accept.h
