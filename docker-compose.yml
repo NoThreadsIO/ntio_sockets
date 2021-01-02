@@ -1,7 +1,8 @@
 version: '3'
 services:
-  build_project:
+  test:
     build: .
+    command: tests/ntio_sockets_test
 
   gdb_server:
     build: docker/gdb_server

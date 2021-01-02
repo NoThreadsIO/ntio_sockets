@@ -16,10 +16,12 @@ jobs:
       - name: Check code in /examples
         run: docker-compose run cpplint_examples
 
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - name: Build code in Docker
-        run: docker-compose run build_project
+        run: docker-compose build test
+      - name: Run tests
+        run: docker-compose run test
