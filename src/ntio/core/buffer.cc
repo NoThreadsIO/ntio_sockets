@@ -1,6 +1,5 @@
-//
-// Created by flipback on 11/16/19.
-//
+// Copyright (c) 2020 Aleksey Timin <atimin@gmail.com>
+// Licensed under the MIT License.
 
 #include "ntio/core/buffer.h"
 
@@ -15,7 +14,6 @@ Buffer::Buffer() : buffer_(0), position_{0} {}
 Buffer &Buffer::operator<<(uint8_t val) {
   buffer_.push_back(val);
   return *this;
-  ;
 }
 
 Buffer &Buffer::operator>>(uint8_t &val) {
@@ -45,10 +43,7 @@ Buffer &Buffer::operator>>(uint16_t &val) {
   return *this;
 }
 
-Buffer &Buffer::operator<<(int16_t val) {
-  return *this << static_cast<uint16_t>(val);
-  ;
-}
+Buffer &Buffer::operator<<(int16_t val) { return *this << static_cast<uint16_t>(val); }
 
 Buffer &Buffer::operator>>(int16_t &val) { return *this >> reinterpret_cast<uint16_t &>(val); }
 

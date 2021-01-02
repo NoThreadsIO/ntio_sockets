@@ -1,9 +1,8 @@
-//
-// Created by Aleksey Timin on 11/16/19.
-//
+// Copyright (c) 2020 Aleksey Timin <atimin@gmail.com>
+// Licensed under the MIT License.
 
-#ifndef EIPSCANNER_UTILS_BUFFER_H
-#define EIPSCANNER_UTILS_BUFFER_H
+#ifndef NTIO_CORE_BUFFER_H_
+#define NTIO_CORE_BUFFER_H_
 
 #include <cstddef>
 #include <cstdint>
@@ -94,4 +93,4 @@ class Buffer {
 };
 }  // namespace ntio::core
 // namespace ntio::core
-#endif  // EIPSCANNER_BUFFER_H
+#endif  // NTIO_CORE_BUFFER_H_
