@@ -6,6 +6,7 @@
 * Move Logger and Error to ntio::core, #4 by @flipback
 * Add Task class, #5 by @flipback
 * Add Buffer to encode\decode data, #6 by @flipback
+* Make buffer template for little and big endian, #7 by @flipback
 
 # Release 0.1.0 (29-12-2020)
 
