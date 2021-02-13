@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.13
 
 WORKDIR /usr/src/ntio_sockets
 RUN apk --no-cache add cmake gcc g++ make
